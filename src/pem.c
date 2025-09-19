@@ -36,7 +36,7 @@ static int remove_newline(char *line)
 	return 0; // No newline found, might not be an error
 }
 
-int pem_write(FILE *fp, const char *name, const uint8_t *data, size_t datalen)
+int gm_pem_write(FILE *fp, const char *name, const uint8_t *data, size_t datalen)
 {
 	BASE64_CTX ctx;
 	uint8_t out[168];
@@ -67,7 +67,7 @@ int pem_write(FILE *fp, const char *name, const uint8_t *data, size_t datalen)
 	return 1;
 }
 
-int pem_read(FILE *fp, const char *name, uint8_t *data, size_t *datalen, size_t maxlen)
+int gm_pem_read(FILE *fp, const char *name, uint8_t *data, size_t *datalen, size_t maxlen)
 {
 	char line[80];
 	char begin_line[80];

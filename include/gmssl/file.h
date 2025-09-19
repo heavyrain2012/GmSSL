@@ -19,8 +19,12 @@ extern "C" {
 #endif
 
 
-int file_size(FILE *fp, size_t *size);
-int file_read_all(const char *file, uint8_t **out, size_t *outlen);
+int gm_file_size(FILE *fp, size_t *size);
+int gm_file_read_all(const char *file, uint8_t **out, size_t *outlen);
+
+// Backward compatibility aliases - deprecated
+#define file_size gm_file_size
+#define file_read_all gm_file_read_all
 
 
 #ifdef __cplusplus
