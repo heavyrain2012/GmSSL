@@ -16,7 +16,7 @@
 #include <gmssl/error.h>
 
 
-int file_size(FILE *fp, size_t *size)
+int gm_file_size(FILE *fp, size_t *size)
 {
 	int fd;
 	struct stat st;
@@ -34,7 +34,7 @@ int file_size(FILE *fp, size_t *size)
 	return 1;
 }
 
-int file_read_all(const char *file, uint8_t **out, size_t *outlen)
+int gm_file_read_all(const char *file, uint8_t **out, size_t *outlen)
 {
 	int ret = -1;
 	FILE *fp = NULL;
@@ -42,7 +42,7 @@ int file_read_all(const char *file, uint8_t **out, size_t *outlen)
 	uint8_t *buf = NULL;
 
 	if (!(fp = fopen(file, "rb"))
-		|| file_size(fp, &fsize) != 1
+		|| gm_file_size(fp, &fsize) != 1
 		|| (buf = malloc(fsize)) == NULL) {
 		error_print();
 		goto end;
